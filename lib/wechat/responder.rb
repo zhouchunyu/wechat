@@ -245,7 +245,7 @@ module Wechat
         data = Hash.from_xml(content)
       end
 
-      data_hash = data.fetch('xml', {})
+      data_hash = data.fetch('xml', {}).merge(openid: data[:openid])
       if Rails::VERSION::MAJOR >= 5
         data_hash = data_hash.to_unsafe_hash if data_hash.instance_of?(ActionController::Parameters)
         HashWithIndifferentAccess.new(data_hash).tap do |msg|
@@ -302,7 +302,7 @@ module Wechat
     end
 
     def request_content
-      params[:xml].nil? ? Hash.from_xml(request.raw_post) : { 'xml' => params[:xml] }
+      params[:xml].nil? ? Hash.from_xml(request.raw_post) : { 'xml' => params[:xml] }.merge(openid: params[:openid])
     end
   end
 end

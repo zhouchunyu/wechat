@@ -43,8 +43,10 @@ module Wechat
     def request(path, header = {}, &_block)
       url_base = header.delete(:base) || base
       as = header.delete(:as)
+      access_token = header.delete(:access_token)
+      token = access_token.present? ? "?access_token=#{access_token}" : nil
       header['Accept'] ||= 'application/json'
-      response = yield("#{url_base}#{path}", header)
+      response = yield("#{url_base}#{path}#{token}", header)
 
       raise "Request not OK, response status #{response.status}" if response.status != 200
       parse_response(response, as || :json) do |parse_as, data|
