@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.email       = 'zhouchunyu20xx@163.com'
   s.homepage    = 'https://github.com/Eric-Guo/wechat'
 
-  s.name        = 'gfd_wechat'
+  s.name        = 'wechat'
   s.version     = File.read(File.expand_path('VERSION', __dir__)).strip
   s.licenses    = ['MIT']
   s.summary     = 'DSL for wechat message handling and API'
