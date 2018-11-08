@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 Gem::Specification.new do |s|
-  s.authors     = ['Skinnyworm', 'Eric Guo']
-  s.email       = 'eric.guocz@gmail.com'
+  s.authors     = ['Skinnyworm', 'Eric Guo', 'zcy']
+  s.email       = 'zhouchunyu20xx@163.com'
   s.homepage    = 'https://github.com/Eric-Guo/wechat'
 
-  s.name        = 'wechat'
+  s.name        = 'gfd_wechat'
   s.version     = File.read(File.expand_path('VERSION', __dir__)).strip
   s.licenses    = ['MIT']
   s.summary     = 'DSL for wechat message handling and API'
@@ -14,9 +14,6 @@ Gem::Specification.new do |s|
 
   s.files = Dir['{bin,lib}/**/*'] + %w[LICENSE README.md README-CN.md CHANGELOG.md]
   s.executables << 'wechat'
-
-  s.cert_chain  = ['certs/Eric-Guo.pem']
-  s.signing_key = File.expand_path('~/.ssh/gem-private_key.pem') if $PROGRAM_NAME.end_with?('gem')
 
   s.add_runtime_dependency 'activesupport', '>= 3.2', '< 6'
   s.add_runtime_dependency 'http', '>= 1.0.4', '< 4'
